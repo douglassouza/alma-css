@@ -1,0 +1,105 @@
+/*
+Styleguide Tables
+*/
+
+/*
+Formataçao de tabela:
+
+Markup:
+<table class="alma-table $modifierClass">
+  <thead>
+    <tr>
+      <th>Column 1</th>
+      <th>Column 2</th>
+      <th>Column 3</th>
+      <th>Column 4</th>
+      <th>Column 5</th>
+      <th>Column 6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Row 1</td>
+      <td>Row 2</td>
+      <td>Row 3</td>
+      <td>Row 4</td>
+      <td>Row 5</td>
+      <td>Row 6</td>
+    </tr>
+    <tr>
+      <td>Row 1</td>
+      <td>Row 2</td>
+      <td>Row 3</td>
+      <td>Row 4</td>
+      <td>Row 5</td>
+      <td>Row 6</td>
+    </tr>
+  </tbody>
+</table>
+
+.alma-table-striped - Tabela zerabada.
+.alma-table-hover - Destaca as linha que estao com hover.
+
+Styleguide Tables - 1.Tipos de Tabela
+*/
+
+.alma-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #eee;
+}
+
+.alma-table thead {
+    background: #f5f5f5;
+    color: #666;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.alma-table tbody {
+    border-bottom-width: 0;
+    color: #777;
+}
+
+.alma-table td,
+.alma-table th {
+    border-left: 1px solid #eee;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; 
+    padding: 0.25em .5em;
+}
+
+.alma-table th > a,
+.alma-table td > a {
+    color: #4183c4;
+    text-decoration: none; 
+}
+
+.alma-table th{
+    text-align: center;
+}
+
+.alma-table th > a:hover,
+.alma-table td > a:hover {
+    text-decoration: underline;
+}
+
+.alma-table td {
+    border-bottom: 1px solid #eee;
+}
+
+.alma-table-hover tbody > tr:hover {
+    background-color: #f2f2f2;
+}
+
+.alma-table tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
+
+.alma-table-striped tbody > tr:nth-child(2n) td {
+    background-color: #f2f2f2;
+}

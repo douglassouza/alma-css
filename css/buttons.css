@@ -1,0 +1,132 @@
+/*
+Styleguide Buttons
+*/
+
+/*
+Formataçao de botoes:
+
+Markup:
+<button class="alma-btn $modifierClass">Example Button</button>
+
+:hover - Destaca quando o botao estiver em hover.
+:active - Destaca quando o botao estiver ativo.
+.alma-btn-disabled - Destaca quando o botao estiver desativado.
+.btn-small - Botao pequeno
+.btn-large - Botao grande
+
+Styleguide Buttons - 1.Botoes
+*/
+
+.alma-btn {
+    display: inline-block;
+    padding: .5em 1em;
+    border: 0px;
+    border-radius: 2px;
+    font-size: 100%;
+    color: #444;
+    background-color: #eaeaea;
+    text-decoration: none;
+}
+
+.alma-btn:hover,
+.alma-btn:focus {
+    background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    cursor: pointer;
+}
+
+.alma-btn:focus {
+    outline: 0;
+}
+
+.alma-btn-active,
+.alma-btn:active {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15) inset,0 0 6px rgba(0,0,0,.2) inset;
+}
+
+.alma-btn[disabled],
+.alma-btn-disabled,
+.alma-btn-disabled:hover,
+.alma-btn-disabled:focus,
+.alma-btn-disabled:active {
+    border: none;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    filter: alpha(opacity=40);
+    -khtml-opacity: 0.40;
+    -moz-opacity: 0.40;
+    opacity: 0.40;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-small {
+    font-size: 70%;
+}
+
+.btn-large {
+    font-size: 140%;
+}
+
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-error,
+.btn-warning,
+.btn-danger{
+    color: #fff;
+}
+
+/*
+Temas dos botoes:
+
+Markup:
+<button class="alma-btn $modifierClass">Example Button</button>
+
+.btn-primary - Botao primario.
+.btn-success - Botao de sucesso.
+.btn-info - Botao informativo.
+.btn-error - Botao de erro.
+.btn-warning - Botao de alerta.
+.btn-danger - Botao de falha.
+
+Styleguide Buttons - 2.Temas dos Botoes
+*/
+
+.btn-primary {
+    background-color: #0068B4;
+}
+
+.btn-success {
+    background-color: #009835;
+}
+
+.btn-info {
+    background-color: #f0d266;
+}
+
+.btn-error {
+    background-color: #e4514a;
+}
+
+.btn-warning {
+    background-color: #F28E00;
+}
+
+/*
+Formataçao de links:
+
+Markup:
+<a class="alma-lnk" href="#">Rate</a>
+
+Styleguide Buttons - 3.Links
+*/
+.alma-lnk{
+    color: #4183c4;
+    text-decoration: none;
+}
+
+.alma-lnk:hover,
+.alma-lnk:focus,
+.alma-lnk:active {
+    text-decoration: underline;
+}

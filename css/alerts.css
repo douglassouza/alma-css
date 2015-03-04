@@ -1,0 +1,45 @@
+/*
+Styleguide Alerts
+*/
+
+/*
+Caixas de alertas usando a classe .alma-alert:
+
+Markup:
+<div class="alma-alert $modifierClass">
+  <strong>Aviso!</strong> Esta é uma mensagem de alerta, preste atenção em mim!
+</div>
+
+.alert-error - Alerta de erro.
+.alert-success - Alerta de sucesso.
+.alert-info - Alerta informativo.
+
+Styleguide Alerts - 1.Caixas de Alertas
+*/
+
+.alma-alert {
+    width: 100%;
+    color: #444;
+    background-color: #eaeaea;
+    padding: .75em;
+    border-radius: 3px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+ }
+
+.alert-info,
+.alert-error,
+.alert-success {
+    color: #fff;
+}
+
+.alert-error{
+    background-color: #e4514a;
+}
+
+.alert-success{
+    background-color: #009835;
+}
+
+.alert-info{
+    background-color: #42B8DD;
+}

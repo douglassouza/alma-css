@@ -1,0 +1,76 @@
+/*
+Styleguide Navigation
+*/
+
+/*
+Use a classe .alma-menu para os menus:
+
+Markup:
+<nav id="main-nav" class="alma-menu $modifierClass">
+  <ul>
+    <li><a href="#">Nav Item 1</a></li>
+    <li class="alma-menu-selected"><a href="#">Nav Item 2</a></li>
+    <li><a href="#">Nav Item 3</a></li>
+    <li><a href="#">Nav Item 4</a></li>
+  </ul>
+</nav>
+
+.alma-menu-h - menu horizontal.
+
+Styleguide Navigation - 1.Menu vertical e horizontal
+*/
+
+.alma-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.alma-menu a, .alma-menu .alma-menu-heading {
+    display: block;
+    color: #777;
+    line-height: 1.5em;
+    padding: .4em 1.25em;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.alma-menu li a:hover,
+.alma-menu li a:focus {
+    background: #eee;
+}
+
+.alma-menu-h li{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.alma-menu .alma-menu-selected a {
+    color: #000;
+}
+
+/*
+Cabeçalho do menu:
+
+Markup:
+<nav id="main-nav" class="alma-menu">
+  <ul>
+    <li><a href="#">Nav Item 1</a></li>
+    <li class="alma-menu-heading">Nav heading</li>
+    <li><a href="#">Nav Item 3</a></li>
+    <li><a href="#">Nav Item 4</a></li>
+  </ul>
+</nav>
+
+Styleguide Navigation - 2.Menu com cabeçalho
+*/
+
+.alma-menu .alma-menu-heading {
+    color: #565d64;
+    text-transform: uppercase;
+    font-size: 90%;
+    margin-top: 0.5em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #dfdfdf;
+}

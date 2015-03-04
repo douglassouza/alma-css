@@ -1,0 +1,84 @@
+/*
+Styleguide Grids
+*/
+
+/*
+Formataçao de layout usando grids:
+
+Markup:
+<div class="alma-c-1">
+    <div class="alma-c-3">3 colunas</div>
+    <div class="alma-c-2">2 colunas</div>
+</div>
+
+Styleguide Grids - 1.Tipos de Grids
+*/
+
+.alma-c-1,
+.alma-c-2,
+.alma-c-3,
+.alma-c-4,
+.alma-c-5,
+.alma-c-6,
+.alma-c-7,
+.alma-c-8,
+.alma-c-9,
+.alma-c-10,
+.alma-c-11,
+.alma-c-12 {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+.alma-c-1{
+    width: 100%;
+}
+
+.alma-c-2{
+    width: 50%;
+}
+
+.alma-c-3{
+    width: 33.3333%;
+}
+
+.alma-c-4{
+    width: 25%;
+}
+
+.alma-c-5{
+    width: 20%;
+}
+
+.alma-c-6{
+    width: 16.6667%;
+}
+
+.alma-c-7{
+    width: 14.2858%;
+}
+
+.alma-c-8{
+    width: 12.5%;
+}
+
+.alma-c-9{
+    width: 11.1112%;
+}
+
+.alma-c-10{
+    width: 10%;
+}
+
+.alma-c-11{
+    width: 9.091%;
+}
+
+.alma-c-12{
+    width: 8.3334%;
+}

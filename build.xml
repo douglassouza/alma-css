@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Phing build config file.
+    @link http://www.phing.info/
+-->
+<project name="alma-css" default="build-dev">
+
+    <!-- Date -->
+    <tstamp>
+        <format property="build.time" pattern="%Y%m%d%H%I%S" />
+        <format property="build.date" pattern="%Y-%m-%dT%H:%I:%S-03:00" />
+    </tstamp>
+
+    <!-- Properties -->
+    <property file="build.properties"/>
+    <property name="basedir" value="${phing.dir}" />
+    <property name="build.cssPath" value="${build.dir}/css/"/>
+    <property name="css.concat.min" value="css-min-${build.time}.css"/>
+	<property name="basedir" value="${build.dir}"/>
+
+    <!-- IncludePath -->
+    <includepath classpath="${basedir}/Vendor/pear/net_ftp" />
+
+    <!-- FileList and FilesSet -->
+
+    <filelist id="list.build.css" dir="${build.dir}" files="
+    	vendor/components/normalize.css/normalize.css,
+    	css/alerts.css,
+    	css/buttons.css,
+    	css/forms.css,
+    	css/grids.css,
+    	css/nav.css,
+    	css/pagination.css,
+    	css/tables.css,
+    	css/typography.css"
+    />
+	
+	<filelist id="list.order.css" dir="${build.dir}" files="
+	   	vendor/components/normalize.css/normalize.css,
+		css/base.css,
+		css/layout.css,
+		css/styleguide.css"
+	 />
+
+    <fileset id="list.css" dir="${build.dir}">
+        <include name="vendor/components/normalize.css/normalize.css" />
+        <include name="css/base.css"/>
+    	<include name="css/layout.css"/>
+        <include name="css/styleguide.css"/>
+    </fileset>
+
+    <fileset id="list.vendor" dir="${basedir}">
+        <include name="vendor/components/normalize.css/**" />
+    	<include name="vendor/scan/kss-php/**" />
+    	<include name="vendor/kriswallsmith/assetic/**" />
+    	<include name="vendor/symfony/**" />
+    	<include name="vendor/composer/**" />
+    	<include name="vendor/autoload.php" />
+    </fileset>
+	
+	<fileset id="list.layouts" dir="${build.dir}">
+	    <include name="index.php" />
+	</fileset>
+
+    <!-- Target composer - Install composer -->
+    <target name="composer.install">
+        <available file="composer.phar" property="composer.exists" />
+        <if>
+            <not>
+                <isset property="composer.exists" />
+            </not>
+            <then>
+                <php expression="file_put_contents('composer.phar',file_get_contents('https://getcomposer.org/installer'))" />
+                <exec command="php composer.phar" />
+                <composer command="install" />
+            </then>
+            <else>
+                <echo msg="composer already installed" />
+            </else>
+        </if>
+    </target>
+
+    <!-- Target self-update - Composer self-update -->
+    <target name="composer.selfupdate">
+        <composer command="self-update" />
+    </target>
+
+    <!-- Target update - Composer updates -->
+    <target name="composer.update">
+        <composer command="update" />
+    </target>
+
+    <!--Delete any previous Publish directory to start from scratch -->
+    <target name="build.delete">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <!--Create the Build Directory -->
+    <target name="build.createDir">
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <!-- Copies the files in the app directory to the publish, excluding tmp, Console, and Test -->
+    <target name="copy.all">
+        <copy todir="${build.dir}">
+            <fileset dir="${basedir}">
+                <exclude name="vendor/**"/>
+                <exclude name="build.properties"/>
+                <exclude name="build.xml"/>
+                <exclude name="composer.json"/>
+                <exclude name="composer.lock"/>
+                <exclude name="composer.phar"/>
+                <exclude name=".settings/**"/>
+                <exclude name=".buildpath"/>
+                <exclude name=".editorconfig"/>
+                <exclude name=".project"/>
+                <exclude name=".travis.yml"/>
+            </fileset>
+            <fileset refid="list.vendor"/>
+        </copy>
+    </target>
+
+    <!-- Minifies javascript or CSS with YuiCompressor -->
+    <target name="minify.file.css">
+        <echo msg="File: ${absfilename}"/>
+        <exec command="java -jar vendor/nervo/yuicompressor/yuicompressor.jar ${absfilename} -o ${absfilename} --charset utf-8"/>
+    </target>
+
+	<!-- Build  -->
+	<target name="build.css">
+	    <echo msg="Building alma-css files into one…"/>
+		<mkdir dir="${basedir}"/>
+	    <append destfile="${basedir}/alma-css.css">
+	        <filelist refid="list.build.css"/>
+	    </append>
+        <echo msg="Minifying alma-css files…"/>
+		<copy file="${basedir}/alma-css.css" tofile="${basedir}/alma-css.min.css" overwrite="true"/>
+        <foreach param="filename" absparam="absfilename" target="minify.file.css">
+        	<fileset dir="${basedir}">
+        		<include name="alma-css.min.css"/>
+       		</fileset>
+        </foreach>
+	</target>
+
+    <!-- Minifies the CSS -->
+    <target name="minify.css">
+        <echo msg="Minifying CSS files…"/>
+        <foreach param="filename" absparam="absfilename" target="minify.file.css">
+            <fileset refid="list.css"/>
+        </foreach>
+    </target>
+
+    <!-- Concatenate CSS -->
+    <target name="concat.css">
+        <echo msg="Combining all css files into one…"/>
+        <append destfile="${build.cssPath}/${css.concat.min}">
+            <filelist refid="list.order.css"/>
+        </append>
+        <delete includeemptydirs="true" verbose="false" failonerror="true">
+            <filelist refid="list.order.css"/>
+        </delete>
+    </target>
+
+    <!-- Minifies the javascript and CSS -->
+    <target name="minify.loop">
+        <echo msg="Modifying file of layouts to minify"/>
+        <reflexive>
+            <fileset refid="list.layouts"/>
+            <filterchain>
+                <replaceregexp>
+                    <regexp pattern="&lt;!--cssStart--&gt;.*&lt;!--cssEnd--&gt;" replace='&lt;link rel="stylesheet" href="css/${css.concat.min}"&gt;' multiline="true"/>
+                </replaceregexp>
+                <replaceregexp>
+                    <regexp pattern="&lt;!--date--&gt;" replace='&lt;meta name="date" content="${build.date}"&gt;'/>
+                </replaceregexp>
+            	<replaceregexp>
+            		<regexp pattern="&lt;!--link.css--&gt;" replace='&lt;a target="_blank" class="alma-lnk" href="alma-css.css"&gt;alma-css.css&lt;/a&gt;'/>
+            	</replaceregexp>
+            	<replaceregexp>
+            		<regexp pattern="&lt;!--link.css.min--&gt;" replace='&lt;a target="_blank" class="alma-lnk" href="alma-css.min.css"&gt;alma-css.min.css&lt;/a&gt;'/>
+            	</replaceregexp>
+            </filterchain>
+        </reflexive>
+    </target>
+
+    <!-- Composer -->
+    <target name="composer"
+        depends="composer.install, composer.selfupdate, composer.update"/>
+
+    <!-- Minify -->
+    <target name="minify"
+        depends="build.css, minify.css, concat.css, minify.loop"/>
+
+    <!-- The secret sauce -->
+    <target name="main" depends="build.delete, build.createDir, copy.all, minify" />
+
+    <!-- Build for developer. Intended for usage on the command line before committing. -->
+    <target name="build-dev"
+        depends="composer, main"/>
+
+    <!-- Build for production. Intended for usage on the command line before committing. -->
+    <target name="build-prod"
+        depends="build-dev"/>
+
+</project>
