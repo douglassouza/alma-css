@@ -1,11 +1,13 @@
 {
-	"name": "alma-css",
-    "require": {
-        "scan/kss-php": "dev-master",
-        "components/normalize.css": "dev-master",
-        "afarkas/html5shiv": "dev-master",
-        "nervo/yuicompressor": "dev-master",
-        "phing/phing": "dev-master",
+	"name": "douglassouza/alma-css",
+	"description": "Framework CSS",
+    "license": "MIT",
+    "require-dev": {
+        "scan/kss-php": "~1",
+        "components/normalize.css": "~2",
+        "afarkas/html5shiv": "~3",
+        "nervo/yuicompressor": "~2",
+        "phing/phing": "~2",
         "pear/net_ftp": "dev-master"
     }
 }

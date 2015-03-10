@@ -2356,6 +2356,6 @@ define('html5shiv', function (require, exports, module) {
   // shiv the document
   shivDocument(document);
 
-}(typeof window !== "undefined" ? window : this, document));
+}(this, document));
 
 });

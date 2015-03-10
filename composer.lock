@@ -4,20 +4,21 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8f28bee2f6b9ede2578daae434f1a2c3",
-    "packages": [
+    "hash": "599c23dec10dd3b85c06e765c1db2cf5",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "afarkas/html5shiv",
-            "version": "dev-master",
+            "version": "3.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aFarkas/html5shiv.git",
-                "reference": "5a8a9a9adccb27e1a79aa0bc739c1ab6f5259a57"
+                "reference": "40df868a76f1f19ea23b123d1480d44a7195f349"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aFarkas/html5shiv/zipball/5a8a9a9adccb27e1a79aa0bc739c1ab6f5259a57",
-                "reference": "5a8a9a9adccb27e1a79aa0bc739c1ab6f5259a57",
+                "url": "https://api.github.com/repos/aFarkas/html5shiv/zipball/40df868a76f1f19ea23b123d1480d44a7195f349",
+                "reference": "40df868a76f1f19ea23b123d1480d44a7195f349",
                 "shasum": ""
             },
             "require": {
@@ -38,21 +39,24 @@
             ],
             "description": "Defacto way to enable use of HTML5 sectioning elements in legacy Internet Explorer.",
             "homepage": "http://paulirish.com/2011/the-history-of-the-html5-shiv/",
-            "time": "2015-03-02 09:27:12"
+            "time": "2014-05-03 10:11:35"
         },
         {
             "name": "components/normalize.css",
-            "version": "dev-master",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/normalize.css.git",
-                "reference": "7190c8ef60f39e89f855e9e2224277c127186ead"
+                "reference": "444055467d693c67923643a0f593eff8a7afc588"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/normalize.css/zipball/7190c8ef60f39e89f855e9e2224277c127186ead",
-                "reference": "7190c8ef60f39e89f855e9e2224277c127186ead",
+                "url": "https://api.github.com/repos/components/normalize.css/zipball/444055467d693c67923643a0f593eff8a7afc588",
+                "reference": "444055467d693c67923643a0f593eff8a7afc588",
                 "shasum": ""
+            },
+            "require": {
+                "robloach/component-installer": "*"
             },
             "type": "component",
             "extra": {
@@ -69,7 +73,7 @@
             ],
             "description": "Normalize.css is a customisable CSS file that makes browsers render all elements more consistently and in line with modern standards.",
             "homepage": "http://necolas.github.com/normalize.css/",
-            "time": "2014-11-16 14:46:43"
+            "time": "2013-10-24 03:39:15"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -147,21 +151,18 @@
         },
         {
             "name": "nervo/yuicompressor",
-            "version": "dev-master",
+            "version": "2.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nervo/yuicompressor.git",
-                "reference": "89f757673bb612f66d3de9deb50760ffc39ad857"
+                "reference": "e6e3b215c3998cf6092613c002ae533ae75d7ada"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nervo/yuicompressor/zipball/89f757673bb612f66d3de9deb50760ffc39ad857",
-                "reference": "89f757673bb612f66d3de9deb50760ffc39ad857",
+                "url": "https://api.github.com/repos/nervo/yuicompressor/zipball/e6e3b215c3998cf6092613c002ae533ae75d7ada",
+                "reference": "e6e3b215c3998cf6092613c002ae533ae75d7ada",
                 "shasum": ""
             },
-            "bin": [
-                "yuicompressor.jar"
-            ],
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -173,7 +174,7 @@
                 "java",
                 "yui"
             ],
-            "time": "2014-10-28 19:46:50"
+            "time": "2013-09-13 10:26:14"
         },
         {
             "name": "pear/net_ftp",
@@ -280,16 +281,16 @@
         },
         {
             "name": "phing/phing",
-            "version": "dev-master",
+            "version": "2.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "9fc92d6a76be7077f217539565fde8592ce80aff"
+                "reference": "f6c25373cbce5e042dddd9b951a3d5638bb78f67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/9fc92d6a76be7077f217539565fde8592ce80aff",
-                "reference": "9fc92d6a76be7077f217539565fde8592ce80aff",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/f6c25373cbce5e042dddd9b951a3d5638bb78f67",
+                "reference": "f6c25373cbce5e042dddd9b951a3d5638bb78f67",
                 "shasum": ""
             },
             "require": {
@@ -333,7 +334,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.11.x-dev"
+                    "dev-master": "2.10.x-dev"
                 }
             },
             "autoload": {
@@ -350,23 +351,23 @@
             ],
             "authors": [
                 {
-                    "name": "Michiel Rook",
-                    "email": "mrook@php.net"
+                    "name": "Phing Community",
+                    "homepage": "http://www.phing.info/trac/wiki/Development/Contributors"
                 },
                 {
-                    "name": "Phing Community",
-                    "homepage": "https://www.phing.info/trac/wiki/Development/Contributors"
+                    "name": "Michiel Rook",
+                    "email": "mrook@php.net"
                 }
             ],
             "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
-            "homepage": "https://www.phing.info/",
+            "homepage": "http://www.phing.info/",
             "keywords": [
                 "build",
                 "phing",
                 "task",
                 "tool"
             ],
-            "time": "2015-02-26 09:32:04"
+            "time": "2015-02-19 15:49:46"
         },
         {
             "name": "robloach/component-installer",
@@ -414,7 +415,7 @@
         },
         {
             "name": "scan/kss-php",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scaninc/kss-php.git",
@@ -553,15 +554,9 @@
             "time": "2015-01-25 04:39:26"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "scan/kss-php": 20,
-        "components/normalize.css": 20,
-        "afarkas/html5shiv": 20,
-        "nervo/yuicompressor": 20,
-        "phing/phing": 20,
         "pear/net_ftp": 20
     },
     "prefer-stable": false,
