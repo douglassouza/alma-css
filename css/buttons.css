@@ -3,18 +3,18 @@ Styleguide Buttons
 */
 
 /*
-Formataçao de botoes:
+Formatação de botões:
 
 Markup:
 <button class="alma-btn $modifierClass">Example Button</button>
 
-:hover - Destaca quando o botao estiver em hover.
-:active - Destaca quando o botao estiver ativo.
-.alma-btn-disabled - Destaca quando o botao estiver desativado.
-.btn-small - Botao pequeno
-.btn-large - Botao grande
+:hover - Destaca quando o botão estiver em hover.
+:active - Destaca quando o botão estiver ativo.
+.alma-btn-disabled - Destaca quando o botão estiver desativado.
+.btn-small - Botão pequeno
+.btn-large - Botão grande
 
-Styleguide Buttons - 1.Botoes
+Styleguide Buttons - 1.Botões
 */
 
 .alma-btn {
@@ -77,19 +77,19 @@ Styleguide Buttons - 1.Botoes
 }
 
 /*
-Temas dos botoes:
+Temas dos botões:
 
 Markup:
 <button class="alma-btn $modifierClass">Example Button</button>
 
-.btn-primary - Botao primario.
-.btn-success - Botao de sucesso.
-.btn-info - Botao informativo.
-.btn-error - Botao de erro.
-.btn-warning - Botao de alerta.
-.btn-danger - Botao de falha.
+.btn-primary - Botão primario.
+.btn-success - Botão de sucesso.
+.btn-info - Botão informativo.
+.btn-error - Botão de erro.
+.btn-warning - Botão de alerta.
+.btn-danger - Botão de falha.
 
-Styleguide Buttons - 2.Temas dos Botoes
+Styleguide Buttons - 2.Temas dos Botões
 */
 
 .btn-primary {
@@ -113,7 +113,7 @@ Styleguide Buttons - 2.Temas dos Botoes
 }
 
 /*
-Formataçao de links:
+Formatação de links:
 
 Markup:
 <a class="alma-lnk" href="#">Rate</a>
