@@ -5,18 +5,9 @@
 -->
 <project name="alma-css" default="build-dev">
 
-    <!-- Date -->
-    <tstamp>
-        <format property="build.time" pattern="%Y%m%d%H%I%S" />
-        <format property="build.date" pattern="%Y-%m-%dT%H:%I:%S-03:00" />
-    </tstamp>
-
     <!-- Properties -->
     <property file="build.properties"/>
     <property name="basedir" value="${phing.dir}" />
-    <property name="build.cssPath" value="${build.dir}/css/"/>
-    <property name="css.concat.min" value="css-min-${build.time}.css"/>
-	<property name="basedir" value="${build.dir}"/>
 
     <!-- IncludePath -->
     <includepath classpath="${basedir}/Vendor/pear/net_ftp" />
@@ -89,6 +80,12 @@
     <target name="composer.update">
         <composer command="update" />
     </target>
+	
+	<!-- Clean up -->
+	<target name="build.clean" description="Cleanup build artifacts">
+		<delete file="${basedir}/alma-css.css"/>
+		<delete file="${basedir}/alma-css.min.css"/>
+	</target>
 
     <!--Delete any previous Publish directory to start from scratch -->
     <target name="build.delete">
@@ -150,17 +147,6 @@
         </foreach>
     </target>
 
-    <!-- Concatenate CSS -->
-    <target name="concat.css">
-        <echo msg="Combining all css files into one…"/>
-        <append destfile="${build.cssPath}/${css.concat.min}">
-            <filelist refid="list.order.css"/>
-        </append>
-        <delete includeemptydirs="true" verbose="false" failonerror="true">
-            <filelist refid="list.order.css"/>
-        </delete>
-    </target>
-
     <!-- Minifies the javascript and CSS -->
     <target name="minify.loop">
         <echo msg="Modifying file of layouts to minify"/>
@@ -189,10 +175,10 @@
 
     <!-- Minify -->
     <target name="minify"
-        depends="build.css, minify.css, concat.css, minify.loop"/>
+        depends="build.css, minify.css, minify.loop"/>
 
     <!-- The secret sauce -->
-    <target name="main" depends="build.delete, build.createDir, copy.all, minify" />
+    <target name="main" depends="build.clean, build.delete, build.createDir, copy.all, minify" />
 
     <!-- Build for developer. Intended for usage on the command line before committing. -->
     <target name="build-dev"
