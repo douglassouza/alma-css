@@ -182,12 +182,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pear/Net_FTP.git",
-                "reference": "02e017e8ac9ad9b81a68a1927684b129c4d2c53f"
+                "reference": "0ca2533e6634eaa8be19ae53a4c6efd341c21e68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/Net_FTP/zipball/02e017e8ac9ad9b81a68a1927684b129c4d2c53f",
-                "reference": "02e017e8ac9ad9b81a68a1927684b129c4d2c53f",
+                "url": "https://api.github.com/repos/pear/Net_FTP/zipball/0ca2533e6634eaa8be19ae53a4c6efd341c21e68",
+                "reference": "0ca2533e6634eaa8be19ae53a4c6efd341c21e68",
                 "shasum": ""
             },
             "require": {
@@ -222,7 +222,7 @@
                 }
             ],
             "description": "More info available on: http://pear.php.net/package/Net_FTP",
-            "time": "2015-01-20 04:52:00"
+            "time": "2015-03-12 09:57:51"
         },
         {
             "name": "pear/pear_exception",

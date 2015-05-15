@@ -10,6 +10,9 @@
     text-rendering: auto;
 }
 #col1{
+	position: fixed;
+	top: 0;
+	left: 0;
     float: left;
     width: 15em;
     height: 100%;

@@ -3,7 +3,7 @@ Styleguide Typography
 */
 
 /*
-Formataçao dos titulos:
+Formatação dos títulos:
 
 Markup:
 <h1>Heading 1</h1>
@@ -11,7 +11,7 @@ Markup:
 <h3>Heading 3</h3>
 <h4>Heading 4</h4>
 
-Styleguide Typography - 1.Titulos
+Styleguide Typography - 1.Títulos
 */
 
 h1, h2, h3, h4, h5, h6 {
@@ -25,7 +25,7 @@ h1, h2 {
 }
 
 /*
-Formataçao dos textos:
+Formatação dos textos:
 
 Markup:
 <div class="$modifierClass">Texto</div>
