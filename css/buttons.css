@@ -20,6 +20,7 @@ Styleguide Buttons - 1.Botões
 .alma-btn {
     display: inline-block;
     padding: .5em 1em;
+    margin-right: .25em;
     border: 0px;
     border-radius: 2px;
     font-size: 100%;
